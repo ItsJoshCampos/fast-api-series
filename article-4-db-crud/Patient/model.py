@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime
 from utils.connection import Base
 
+# Base is coming from the SQL Alchemy Base class created in utils/connection.py
 class Patient(Base):
     __tablename__ = 'Patient'
 

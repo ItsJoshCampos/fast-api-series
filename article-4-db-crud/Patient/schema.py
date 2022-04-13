@@ -1,7 +1,7 @@
 from datetime import datetime
 from pydantic import BaseModel
 
-# Create ToDo Schema (Pydantic Model)
+# Create Patient Schema (Pydantic Model)
 class PatientCreate(BaseModel):
     BirthDate: datetime
     FirstName: str

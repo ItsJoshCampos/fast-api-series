@@ -26,7 +26,7 @@ source venv/bin/activate
 
 ### 3. Install FastAPI Directly
 ```bash
-pip install "FastAPI[all]"
+pip install  "FastAPI[all]" SQLAlchemy pymssql
  ```
 
 ### 4. Startup FASTApi Server

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, status
 from typing import List
 
 import utils
@@ -90,3 +90,15 @@ async def Put(ID: int, patientUpdate: schema.Patient, db: Session = Depends(util
         raise HTTPException(status_code=404, detail=f"Patient with ID {ID} not found")
 
     return patient
+
+# DELETE
+@app.delete("/Patient/{ID}", status_code=status.HTTP_204_NO_CONTENT)
+async def Delete(ID: int,  db: Session = Depends(utils.get_db)):
+    
+    # get the model.Patient with the given id
+    patient = db.get(model.Patient, ID)
+
+    # check if patient with given id exists and call delete
+    if patient:
+        db.delete(patient)
+        db.commit()
